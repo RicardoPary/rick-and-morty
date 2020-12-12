@@ -1,10 +1,10 @@
 import {Observable} from 'rxjs';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {environment} from "../../../../environments/environment";
+import {environment} from "../../../environments/environment";
 
 @Injectable()
-export class ReportingService {
+export class RickAndMortyService {
 
   apiBaseUrl = environment.app.apiBaseUrl;
 

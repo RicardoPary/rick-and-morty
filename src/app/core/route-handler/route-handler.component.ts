@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { SidenavItem } from '../sidenav/sidenav-item/sidenav-item.model';
+import {Component, OnInit} from '@angular/core';
+import {SidenavItem} from '../sidenav/sidenav-item/sidenav-item.model';
 import * as fromRoot from '../../reducers/index';
 import * as fromSidenav from '../sidenav/shared/sidenav.action';
-import { SetCurrentlyOpenByRouteAction } from '../sidenav/shared/sidenav.action';
-import { Store } from '@ngrx/store';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { SelectLayoutAction, SetCardElevationAction } from '../layout/shared/layout.action';
+import {SetCurrentlyOpenByRouteAction} from '../sidenav/shared/sidenav.action';
+import {Store} from '@ngrx/store';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {SelectLayoutAction, SetCardElevationAction} from '../layout/shared/layout.action';
 
 @Component({
   selector: 'elastic-route-handler',
@@ -18,7 +18,8 @@ export class RouteHandlerComponent implements OnInit {
     private store: Store<fromRoot.State>,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     // Set Sidenav Currently Open on Page load
@@ -61,20 +62,20 @@ export class RouteHandlerComponent implements OnInit {
 
     // Top Level Item (The item to click on so the dropdown opens)
     const dashboard = new SidenavItem({
-      name: 'Home',
+      name: 'Rick And Morty',
       icon: 'dashboard',
-      subItems: [ ],
+      subItems: [],
       position: 1
     });
 
     // Sub Items for the Top Level Item (The items shown when you clicked on the dropdown item)
-    // Note: The Top Level Item is added as "parent" in those items, here "dashboard" (variable from above)
+    // Note: The Top Level Item is added as "parent" in those items, here "rick-and-morty" (variable from above)
     const dashboardSubItems = [
       new SidenavItem({
         name: 'List',
-        route: '/',
+        route: '/rick-and-morty',
         parent: dashboard,
-        subItems: [ ],
+        subItems: [],
         position: 1,
         routerLinkActiveOptions: {
           exact: true

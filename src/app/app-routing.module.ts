@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
-import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {LayoutComponent} from './core/layout/layout.component';
-import {CharacterComponent} from "./pages/dashboard/character/character.component";
-import {EpisodeComponent} from "./pages/dashboard/episode/episode.component";
+import {CharacterComponent} from "./pages/rick-and-morty/character/character.component";
+import {EpisodeComponent} from "./pages/rick-and-morty/episode/episode.component";
 
 const routes: Routes = [
   {
@@ -10,9 +10,11 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: '',
-        loadChildren: () => import('./pages/dashboard/dashboard-statistics/dashboard-statistics.module').then(m => m.DashboardStatisticsModule),
-        pathMatch: 'full'
+        path: '', redirectTo: 'rick-and-morty', pathMatch: 'full'
+      },
+      {
+        path: 'rick-and-morty',
+        loadChildren: () => import('./pages/rick-and-morty/rick-and-morty.module').then(m => m.RickAndMortyModule)
       },
       {
         path: 'character/:id',
@@ -27,11 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabled',
-    preloadingStrategy: PreloadAllModules,
-    scrollPositionRestoration: 'top'
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 

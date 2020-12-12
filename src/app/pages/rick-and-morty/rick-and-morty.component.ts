@@ -1,24 +1,24 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {ROUTE_TRANSITION} from '../../../app.animation';
-import * as fromRoot from '../../../reducers/index';
+import * as fromRoot from '../../reducers/index';
 import {Store} from '@ngrx/store';
-import {ReportingService} from "./reporting.service";
+import {RickAndMortyService} from "./rick-and-morty.service";
+import {ROUTE_TRANSITION} from "../../app.animation";
 
 @Component({
-  selector: 'elastic-dashboard-statistics',
-  templateUrl: './dashboard-statistics.component.html',
-  styleUrls: ['./dashboard-statistics.component.scss'],
+  templateUrl: './rick-and-morty.component.html',
+  styleUrls: ['./rick-and-morty.component.scss'],
   animations: [...ROUTE_TRANSITION],
   host: {'[@routeTransition]': ''}
 })
-export class DashboardStatisticsComponent implements OnInit {
+
+export class RickAndMortyComponent implements OnInit {
 
   items = [];
 
   constructor(
     private store: Store<fromRoot.State>,
     private cd: ChangeDetectorRef,
-    private reportingService: ReportingService
+    private reportingService: RickAndMortyService
   ) {
 
   }

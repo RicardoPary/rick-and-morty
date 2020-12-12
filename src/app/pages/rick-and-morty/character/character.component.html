@@ -1,0 +1,38 @@
+<div class="dashboard-statistics">
+
+  <elastic-page-header [height]="'170px'"
+                       background="url(/assets/img/demo/headers/pattern-3.png)"
+                       [reverse]="true">
+  </elastic-page-header>
+
+  <div class="container">
+
+    <elastic-breadcrumbs
+      currentPage="Character"
+      header="primary">
+    </elastic-breadcrumbs>
+
+    <div class="autocomplete group card alternative no-border mat-elevation-z2" fxLayout="column" fxLayoutGap="24px">
+      <div class="group-title">CHARACTER</div>
+      <div class="divider reverse"></div>
+      <div class="section" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="start stretch"
+           fxLayoutAlign.gt-md="start start" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
+        <div fxFlex.gt-md>
+          <img [src]="entity?.image">
+        </div>
+        <div class="preview-tabs mat-elevation-z2" fxFlex="auto" fxFlex.gt-md="70%">
+          <p>{{entity?.name}}</p>
+
+          <ng-container *ngFor="let item of entity?.episode; let i = index;">
+            <p [routerLink]="['/episode', i + 1]">
+              {{i + 1}}
+            </p>
+          </ng-container>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

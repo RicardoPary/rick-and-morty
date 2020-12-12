@@ -1,11 +1,16 @@
 <div class="dashboard-statistics">
 
-  <elastic-page-header [height]="'170px'" background="url(/assets/img/demo/headers/pattern-3.png)"
-                  [reverse]="true"></elastic-page-header>
+  <elastic-page-header [height]="'170px'"
+                       background="url(/assets/img/demo/headers/pattern-3.png)"
+                       [reverse]="true">
+  </elastic-page-header>
 
   <div class="container">
 
-    <elastic-breadcrumbs currentPage="Dashboard - Statistics" header="primary"></elastic-breadcrumbs>
+    <elastic-breadcrumbs
+      currentPage="Rick And Morty"
+      header="primary">
+    </elastic-breadcrumbs>
 
     <div class="row" fxLayoutGap="20px">
       <ng-container *ngFor="let item of items;">

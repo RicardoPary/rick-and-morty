@@ -1,0 +1,28 @@
+<div class="dashboard-statistics">
+
+  <elastic-page-header [height]="'170px'"
+                       background="url(/assets/img/demo/headers/pattern-3.png)"
+                       [reverse]="true"></elastic-page-header>
+
+  <div class="container">
+
+    <elastic-breadcrumbs
+      currentPage="Episode"
+      header="primary">
+    </elastic-breadcrumbs>
+
+    <div class="autocomplete group card alternative no-border mat-elevation-z2" fxLayout="column" fxLayoutGap="24px">
+      <div class="group-title">EPISODE</div>
+      <div class="section" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="start stretch"
+           fxLayoutAlign.gt-md="start start" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
+        <div class="preview-tabs mat-elevation-z2" fxFlex="auto" fxFlex.gt-md="70%">
+          <p>{{entity?.name}}</p>
+          <p>{{entity?.episode}}</p>
+          <p>{{entity?.created}}</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
