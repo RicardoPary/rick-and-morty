@@ -3,7 +3,7 @@ import * as fromRoot from '../../reducers/index';
 import {Store} from '@ngrx/store';
 import {RickAndMortyService} from "./rick-and-morty.service";
 import {ROUTE_TRANSITION} from "../../app.animation";
-import {Subscription} from "rxjs";
+import {BehaviorSubject, Subscription} from "rxjs";
 
 @Component({
   templateUrl: './rick-and-morty.component.html',
@@ -14,7 +14,7 @@ import {Subscription} from "rxjs";
 
 export class RickAndMortyComponent implements OnInit, OnDestroy {
 
-  items = [];
+  items = new BehaviorSubject<any[]>([]);
   subs: Subscription;
 
   constructor(
@@ -28,7 +28,7 @@ export class RickAndMortyComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.subs = this.reportingService.getCharacters(1).subscribe(res => {
-      this.items = res.body.results;
+      this.items.next(res.body.results);
     });
 
   }

@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ROUTE_TRANSITION} from "../../../app.animation";
 import {ActivatedRoute} from "@angular/router";
 import {RickAndMortyService} from "../rick-and-morty.service";
-import {Subscription} from "rxjs";
+import {BehaviorSubject, Subscription} from "rxjs";
 
 @Component({
   templateUrl: './episode.component.html',
@@ -13,7 +13,7 @@ import {Subscription} from "rxjs";
 export class EpisodeComponent implements OnInit, OnDestroy {
 
   id: number;
-  entity: any;
+  entity = new BehaviorSubject<any>(null);
   subs: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -25,7 +25,7 @@ export class EpisodeComponent implements OnInit, OnDestroy {
 
     this.id = this.activatedRoute.snapshot.params.id;
     this.subs = this.reportingService.getEpisodeById(this.id).subscribe(res => {
-      this.entity = res.body;
+      this.entity.next(res.body);
     });
 
   }

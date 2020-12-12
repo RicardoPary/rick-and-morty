@@ -18,12 +18,12 @@
       <div class="section" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="start stretch"
            fxLayoutAlign.gt-md="start start" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
         <div fxFlex.gt-md>
-          <img [src]="entity?.image">
+          <img [src]="(entity | async)?.image">
         </div>
         <div class="preview-tabs mat-elevation-z2" fxFlex="auto" fxFlex.gt-md="70%">
-          <p>{{entity?.name}}</p>
+          <p>{{(entity | async)?.name}}</p>
 
-          <ng-container *ngFor="let item of entity?.episode; let i = index;">
+          <ng-container *ngFor="let item of (entity | async)?.episode; let i = index;">
             <p [routerLink]="['/episode', i + 1]">
               {{i + 1}}
             </p>

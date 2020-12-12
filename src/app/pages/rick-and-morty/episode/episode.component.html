@@ -16,9 +16,9 @@
       <div class="section" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="start stretch"
            fxLayoutAlign.gt-md="start start" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
         <div class="preview-tabs mat-elevation-z2" fxFlex="auto" fxFlex.gt-md="70%">
-          <p>{{entity?.name}}</p>
-          <p>{{entity?.episode}}</p>
-          <p>{{entity?.created}}</p>
+          <p>{{(entity | async)?.name}}</p>
+          <p>{{(entity | async)?.episode}}</p>
+          <p>{{(entity | async)?.created}}</p>
         </div>
       </div>
     </div>
