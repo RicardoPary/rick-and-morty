@@ -14,6 +14,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { AgmCoreModule } from '@agm/core';
 import { RouteHandlerModule } from './core/route-handler/route-handler.module';
 import { HttpClientModule } from '@angular/common/http';
+import {EpisodeComponent} from "./pages/dashboard/dashboard-statistics/episode/episode.component";
+import {CharacterComponent} from "./pages/dashboard/dashboard-statistics/character/character.component";
+import {ReportingService} from "./pages/dashboard/dashboard-statistics/reporting.service";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   imports: [
@@ -29,10 +33,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CoreModule,
     PagesModule,
-    RouteHandlerModule
+    RouteHandlerModule,
+    FlexLayoutModule
   ],
-  providers: [],
-  declarations: [AppComponent],
+  providers: [ReportingService],
+  declarations: [AppComponent, EpisodeComponent, CharacterComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

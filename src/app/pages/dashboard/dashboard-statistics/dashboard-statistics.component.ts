@@ -1,14 +1,15 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { ROUTE_TRANSITION } from '../../../app.animation';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ROUTE_TRANSITION} from '../../../app.animation';
 import * as fromRoot from '../../../reducers/index';
-import { Store } from '@ngrx/store';
+import {Store} from '@ngrx/store';
+import {ReportingService} from "./reporting.service";
 
 @Component({
   selector: 'elastic-dashboard-statistics',
   templateUrl: './dashboard-statistics.component.html',
   styleUrls: ['./dashboard-statistics.component.scss'],
   animations: [...ROUTE_TRANSITION],
-  host: { '[@routeTransition]': '' }
+  host: {'[@routeTransition]': ''}
 })
 export class DashboardStatisticsComponent implements OnInit {
 
@@ -29,12 +30,30 @@ export class DashboardStatisticsComponent implements OnInit {
 
   layoutColumnOnBoxed = 'row';
 
+  items = [];
+
   constructor(
     private store: Store<fromRoot.State>,
-    private cd: ChangeDetectorRef
-    ) { }
+    private cd: ChangeDetectorRef,
+    private reportingService: ReportingService
+  ) {
+
+  }
 
   ngOnInit() {
+
+    this.reportingService.getCharacters().subscribe(res => {
+      console.log('AAAAAAAAAAAAAAAAAAAAAA', res);
+
+
+      this.items = res.body.results;
+    });
+
+    this.reportingService.getEpisodes().subscribe(res => {
+      console.log('CCCCCCCCCCCCCC', res);
+
+    });
+
     this.store.select(fromRoot.getLayout).subscribe((layout) => {
       this.layout = layout;
 
