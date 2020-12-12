@@ -1,11 +1,11 @@
 <div class="dashboard-statistics">
 
-  <elastic-page-header *ngIf="!hideHeader" [height]="'170px'" background="url(/assets/img/demo/headers/pattern-3.png)"
+  <elastic-page-header [height]="'170px'" background="url(/assets/img/demo/headers/pattern-3.png)"
                   [reverse]="true"></elastic-page-header>
 
   <div class="container">
 
-    <elastic-breadcrumbs *ngIf="!hideHeader" currentPage="Dashboard - Statistics" header="primary"></elastic-breadcrumbs>
+    <elastic-breadcrumbs currentPage="Dashboard - Statistics" header="primary"></elastic-breadcrumbs>
 
     <div class="row" fxLayoutGap="20px">
       <ng-container *ngFor="let item of items;">

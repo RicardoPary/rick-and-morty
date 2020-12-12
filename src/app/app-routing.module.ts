@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {LayoutComponent} from './core/layout/layout.component';
-import {CharacterComponent} from "./pages/dashboard/dashboard-statistics/character/character.component";
-import {EpisodeComponent} from "./pages/dashboard/dashboard-statistics/episode/episode.component";
+import {CharacterComponent} from "./pages/dashboard/character/character.component";
+import {EpisodeComponent} from "./pages/dashboard/episode/episode.component";
 
 const routes: Routes = [
   {
