@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: 'app/pages/dashboard/dashboard-statistics/dashboard-statistics.module#DashboardStatisticsModule',
+        loadChildren: () => import('./pages/dashboard/dashboard-statistics/dashboard-statistics.module').then(m => m.DashboardStatisticsModule),
         pathMatch: 'full'
       },
       {

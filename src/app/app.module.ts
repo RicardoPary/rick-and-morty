@@ -11,25 +11,24 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { AgmCoreModule } from '@agm/core';
 import { RouteHandlerModule } from './core/route-handler/route-handler.module';
 import { HttpClientModule } from '@angular/common/http';
 import {EpisodeComponent} from "./pages/dashboard/episode/episode.component";
 import {CharacterComponent} from "./pages/dashboard/character/character.component";
 import {ReportingService} from "./pages/dashboard/dashboard-statistics/reporting.service";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: 'elastic-ui' }),
+    BrowserModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+
     BrowserAnimationsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
     EffectsModule.forRoot([]),
-    AgmCoreModule.forRoot({
-      apiKey: environment.googleMapsApiKey
-    }),
     AppRoutingModule,
     CoreModule,
     PagesModule,
