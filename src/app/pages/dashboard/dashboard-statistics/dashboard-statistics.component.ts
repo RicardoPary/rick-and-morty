@@ -25,7 +25,7 @@ export class DashboardStatisticsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.reportingService.getCharacters().subscribe(res => {
+    this.reportingService.getCharacters(1).subscribe(res => {
       this.items = res.body.results;
     });
 

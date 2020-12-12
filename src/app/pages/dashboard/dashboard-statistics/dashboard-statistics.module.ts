@@ -9,6 +9,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import {ReportingService} from "./reporting.service";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {ReportingService} from "./reporting.service";
     DashboardStatisticsRoutingModule,
     PageHeaderModule,
     BreadcrumbsModule,
+    ScrollingModule,
 
     FlexLayoutModule,
 
