@@ -14,7 +14,6 @@ import { RouteHandlerModule } from './core/route-handler/route-handler.module';
 import { HttpClientModule } from '@angular/common/http';
 import {EpisodeComponent} from "./pages/rick-and-morty/episode/episode.component";
 import {CharacterComponent} from "./pages/rick-and-morty/character/character.component";
-import {RickAndMortyService} from "./pages/rick-and-morty/rick-and-morty.service";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {PageHeaderModule} from "./core/page-header/page-header.module";
@@ -37,7 +36,6 @@ import {BreadcrumbsModule} from "./core/breadcrumbs/breadcrumbs.module";
     PageHeaderModule,
     BreadcrumbsModule,
   ],
-  providers: [RickAndMortyService],
   declarations: [AppComponent, EpisodeComponent, CharacterComponent],
   bootstrap: [AppComponent]
 })

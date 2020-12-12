@@ -20,21 +20,35 @@ export class RickAndMortyComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<fromRoot.State>,
     private cd: ChangeDetectorRef,
-    private reportingService: RickAndMortyService
+    private rickAndMortyService: RickAndMortyService
   ) {
+
+    this.rickAndMortyService.currentPagination().subscribe(res => {
+      this.subs = this.rickAndMortyService.getCharacters(res.page).subscribe(res => {
+        this.items.next(res.body.results);
+      });
+    });
 
   }
 
   ngOnInit() {
 
-    this.subs = this.reportingService.getCharacters(1).subscribe(res => {
-      this.items.next(res.body.results);
-    });
-
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe();
+  }
+
+  previous() {
+    const aux = this.rickAndMortyService.getPagination();
+    aux.page = aux.page - 1
+    aux.page > 0 ? this.rickAndMortyService.sendPagination(aux) : '';
+  }
+
+  next() {
+    const aux = this.rickAndMortyService.getPagination();
+    aux.page = aux.page + 1
+    this.rickAndMortyService.sendPagination(aux);
   }
 
 }

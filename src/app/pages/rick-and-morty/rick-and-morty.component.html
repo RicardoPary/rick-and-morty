@@ -12,6 +12,11 @@
       header="primary">
     </elastic-breadcrumbs>
 
+    <div>
+      <button (click)="previous()">Previous</button>
+      <button (click)="next()">Next</button>
+    </div>
+
     <div class="row" fxLayoutGap="20px" style="justify-content: center;">
       <ng-container *ngFor="let item of items | async;">
         <mat-card class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="width: 300px; height: 300px;">

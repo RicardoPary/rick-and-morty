@@ -5,7 +5,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatButtonModule, MatIconModule, MatTabsModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {ScrollbarModule} from '../../core/scrollbar/scrollbar.module';
-import {RickAndMortyService} from "./rick-and-morty.service";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
@@ -39,9 +38,6 @@ const routes: Routes = [
   ],
   declarations: [
     RickAndMortyComponent
-  ],
-  providers: [
-    RickAndMortyService
   ]
 })
 
