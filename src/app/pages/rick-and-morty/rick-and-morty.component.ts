@@ -1,8 +1,9 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import * as fromRoot from '../../reducers/index';
 import {Store} from '@ngrx/store';
 import {RickAndMortyService} from "./rick-and-morty.service";
 import {ROUTE_TRANSITION} from "../../app.animation";
+import {Subscription} from "rxjs";
 
 @Component({
   templateUrl: './rick-and-morty.component.html',
@@ -11,9 +12,10 @@ import {ROUTE_TRANSITION} from "../../app.animation";
   host: {'[@routeTransition]': ''}
 })
 
-export class RickAndMortyComponent implements OnInit {
+export class RickAndMortyComponent implements OnInit, OnDestroy {
 
   items = [];
+  subs: Subscription;
 
   constructor(
     private store: Store<fromRoot.State>,
@@ -25,10 +27,14 @@ export class RickAndMortyComponent implements OnInit {
 
   ngOnInit() {
 
-    this.reportingService.getCharacters(1).subscribe(res => {
+    this.subs = this.reportingService.getCharacters(1).subscribe(res => {
       this.items = res.body.results;
     });
 
+  }
+
+  ngOnDestroy() {
+    this.subs?.unsubscribe();
   }
 
 }
