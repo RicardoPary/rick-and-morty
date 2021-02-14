@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RickAndMortyComponent} from './rick-and-morty.component';
+import {CharacterComponent} from './character.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatButtonModule, MatIconModule, MatTabsModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
@@ -13,7 +13,7 @@ import {PageHeaderModule} from "../../core/page-header/page-header.module";
 import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
 
 const routes: Routes = [
-  {path: '', component: RickAndMortyComponent}
+  {path: '', component: CharacterComponent}
 ];
 
 @NgModule({
@@ -37,9 +37,9 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    RickAndMortyComponent
+    CharacterComponent
   ]
 })
 
-export class RickAndMortyModule {
+export class CharacterModule {
 }

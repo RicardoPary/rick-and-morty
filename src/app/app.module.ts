@@ -12,8 +12,8 @@ import { reducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { RouteHandlerModule } from './core/route-handler/route-handler.module';
 import { HttpClientModule } from '@angular/common/http';
-import {EpisodeComponent} from "./pages/rick-and-morty/episode/episode.component";
-import {CharacterComponent} from "./pages/rick-and-morty/character/character.component";
+import {EpisodeDetailsComponent} from "./pages/episode-details/episode-details.component";
+import {CharacterDetailsComponent} from "./pages/character-details/character-details.component";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {PageHeaderModule} from "./core/page-header/page-header.module";
@@ -36,7 +36,7 @@ import {BreadcrumbsModule} from "./core/breadcrumbs/breadcrumbs.module";
     PageHeaderModule,
     BreadcrumbsModule,
   ],
-  declarations: [AppComponent, EpisodeComponent, CharacterComponent],
+  declarations: [AppComponent, EpisodeDetailsComponent, CharacterDetailsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

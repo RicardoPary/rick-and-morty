@@ -69,11 +69,11 @@ export class RouteHandlerComponent implements OnInit {
     });
 
     // Sub Items for the Top Level Item (The items shown when you clicked on the dropdown item)
-    // Note: The Top Level Item is added as "parent" in those items, here "rick-and-morty" (variable from above)
+    // Note: The Top Level Item is added as "parent" in those items, here "character" (variable from above)
     const dashboardSubItems = [
       new SidenavItem({
         name: 'List',
-        route: '/rick-and-morty',
+        route: '/character',
         parent: dashboard,
         subItems: [],
         position: 1,

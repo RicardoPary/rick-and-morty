@@ -1,0 +1,45 @@
+<div class="simple-table">
+
+  <elastic-page-header [height]="'170px'"
+                       background="url(/assets/img/demo/headers/pattern-3.png)"
+                       [reverse]="true">
+  </elastic-page-header>
+
+  <div class="container">
+
+    <elastic-breadcrumbs
+      currentPage="Rick And Morty"
+      header="primary">
+    </elastic-breadcrumbs>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <button mat-mini-fab
+              color="primary"
+              (click)="previous()"
+              aria-label="Example icon button with a menu icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button mat-mini-fab
+              color="primary"
+              (click)="next()"
+              aria-label="Example icon button with a menu icon">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 0; justify-content: center;">
+    <ng-container *ngFor="let item of items | async;">
+      <mat-card class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                style="width: 300px; height: 400px; margin: 20px;"
+                [routerLink]="['/character-details', item.id]">
+        <mat-card-header style="height: 60px;">
+          <mat-card-title>{{item.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image
+             [src]="item.image">
+      </mat-card>
+    </ng-container>
+  </div>
+
+</div>

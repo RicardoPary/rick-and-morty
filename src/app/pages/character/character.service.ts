@@ -9,7 +9,7 @@ export class Pagination {
 }
 
 @Injectable({providedIn: 'root'})
-export class RickAndMortyService {
+export class CharacterService {
 
   apiBaseUrl = environment.app.apiBaseUrl;
   private pagination = new BehaviorSubject<any>(new Pagination());

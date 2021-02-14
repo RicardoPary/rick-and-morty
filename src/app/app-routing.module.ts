@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LayoutComponent} from './core/layout/layout.component';
-import {CharacterComponent} from "./pages/rick-and-morty/character/character.component";
-import {EpisodeComponent} from "./pages/rick-and-morty/episode/episode.component";
+import {CharacterDetailsComponent} from "./pages/character-details/character-details.component";
+import {EpisodeDetailsComponent} from "./pages/episode-details/episode-details.component";
 
 const routes: Routes = [
   {
@@ -10,19 +10,19 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: '', redirectTo: 'rick-and-morty', pathMatch: 'full'
+        path: '', redirectTo: 'character', pathMatch: 'full'
       },
       {
-        path: 'rick-and-morty',
-        loadChildren: () => import('./pages/rick-and-morty/rick-and-morty.module').then(m => m.RickAndMortyModule)
+        path: 'character',
+        loadChildren: () => import('./pages/character/character.module').then(m => m.CharacterModule)
       },
       {
-        path: 'character/:id',
-        component: CharacterComponent
+        path: 'character-details/:id',
+        component: CharacterDetailsComponent
       },
       {
-        path: 'episode/:id',
-        component: EpisodeComponent
+        path: 'episode-details/:id',
+        component: EpisodeDetailsComponent
       }
     ]
   }
