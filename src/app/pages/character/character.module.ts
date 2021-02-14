@@ -11,6 +11,9 @@ import {MatDividerModule} from "@angular/material/divider";
 import {RouterModule, Routes} from "@angular/router";
 import {PageHeaderModule} from "../../core/page-header/page-header.module";
 import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatSelectModule} from "@angular/material/select";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 const routes: Routes = [
   {path: '', component: CharacterComponent}
@@ -24,10 +27,14 @@ const routes: Routes = [
     MatIconModule,
     MatTabsModule,
     MatButtonModule,
+    MatMenuModule,
     ScrollbarModule,
     ScrollingModule,
     PageHeaderModule,
     BreadcrumbsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+
 
     FlexLayoutModule,
 

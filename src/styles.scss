@@ -43,3 +43,8 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 .mat-card {
   border-radius: 0 !important;
 }
+
+*:focus, *:active {
+  outline: none !important;
+  box-shadow: none !important;
+}

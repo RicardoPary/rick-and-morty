@@ -12,6 +12,7 @@ import {SelectLayoutAction, SetCardElevationAction} from '../layout/shared/layou
   templateUrl: './route-handler.component.html',
   styleUrls: ['./route-handler.component.scss']
 })
+
 export class RouteHandlerComponent implements OnInit {
 
   constructor(
@@ -62,29 +63,16 @@ export class RouteHandlerComponent implements OnInit {
 
     // Top Level Item (The item to click on so the dropdown opens)
     const dashboard = new SidenavItem({
-      name: 'Rick And Morty',
+      name: 'Characters',
       icon: 'dashboard',
-      subItems: [],
+      route: '/character',
       position: 1
     });
 
     // Sub Items for the Top Level Item (The items shown when you clicked on the dropdown item)
     // Note: The Top Level Item is added as "parent" in those items, here "character" (variable from above)
-    const dashboardSubItems = [
-      new SidenavItem({
-        name: 'List',
-        route: '/character',
-        parent: dashboard,
-        subItems: [],
-        position: 1,
-        routerLinkActiveOptions: {
-          exact: true
-        }
-      })
-    ];
 
     // Push the just created Sub Items into the Top Level Item
-    dashboard.subItems.push(...dashboardSubItems);
 
     // Send the created Menu structure to Redux/ngrx (you only need to send the Top Level Item, all dropdown items will be added automatically)
     this.store.dispatch(new fromSidenav.AddSidenavItemAction(dashboard));
