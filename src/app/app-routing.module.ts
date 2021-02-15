@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LayoutComponent} from './core/layout/layout.component';
-import {CharacterDetailsComponent} from "./pages/character-details/character-details.component";
-import {EpisodeDetailsComponent} from "./pages/episode-details/episode-details.component";
 
 const routes: Routes = [
   {
@@ -18,11 +16,11 @@ const routes: Routes = [
       },
       {
         path: 'character-details/:id',
-        component: CharacterDetailsComponent
+        loadChildren: () => import('./pages/character-details/character-details.module').then(m => m.CharacterDetailsModule)
       },
       {
         path: 'episode-details/:id',
-        component: EpisodeDetailsComponent
+        loadChildren: () => import('./pages/episode-details/episode-details.module').then(m => m.EpisodeDetailsModule)
       }
     ]
   }

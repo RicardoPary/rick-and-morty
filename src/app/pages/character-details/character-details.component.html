@@ -1,38 +1,98 @@
-<div class="simple-table">
+<div class="project-details">
 
-  <elastic-page-header [height]="'170px'"
-                       background="url(/assets/img/demo/headers/pattern-3.png)"
-                       [reverse]="true">
-  </elastic-page-header>
+  <elastic-page-header [height]="'180px'" background="url(/assets/img/demo/headers/pattern-3.png)"
+                       [reverse]="true"></elastic-page-header>
 
   <div class="container">
 
-    <elastic-breadcrumbs
-      currentPage="Character"
-      header="primary">
-    </elastic-breadcrumbs>
+    <elastic-breadcrumbs [currentPage]="'Project Details'" [names]="['Projects']"
+                         [header]="'primary'"></elastic-breadcrumbs>
 
-    <div class="autocomplete group card alternative no-border mat-elevation-z2" fxLayout="column" fxLayoutGap="24px">
-      <div class="group-title">CHARACTER</div>
-      <div class="divider reverse"></div>
-      <div class="section" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="start stretch"
-           fxLayoutAlign.gt-md="start start" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
-        <div fxFlex.gt-md>
-          <img [src]="(entity | async)?.image">
+    <div fxLayout="column" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
+      <div class="splash"
+           fxLayout="column" fxLayout.gt-sm="row">
+
+        <div class="left" style="background-image: url({{(character | async)?.image}})"
+             fxLayout="column"
+             fxFlex.gt-xs="200px" fxFlex.gt-sm="300px">
         </div>
-        <div class="preview-tabs mat-elevation-z2" fxFlex="auto" fxFlex.gt-md="70%">
-          <p>{{(entity | async)?.name}}</p>
 
-          <ng-container *ngFor="let item of (entity | async)?.episode; let i = index;">
-            <p [routerLink]="['/episode-details', i + 1]">
-              {{i + 1}}
-            </p>
-          </ng-container>
+        <div class="right" fxFlex="auto" fxFlex.gt-sm
+             fxLayout="column" fxLayoutAlign.gt-sm="space-between">
+          <div class="splash-title">Character Information</div>
 
+          <div class="details"
+               fxLayout="column" fxLayout.gt-sm="row"
+               fxLayoutAlign.gt-sm="space-between" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
+            <div class="detail">
+              <div class="name">Name</div>
+              <div class="value">{{ (character | async)?.name }}</div>
+            </div>
 
+            <div class="detail">
+              <div class="name">Status</div>
+              <div class="value">{{ (character | async)?.status }}</div>
+            </div>
+
+            <div class="detail">
+              <div class="name">Species</div>
+              <div class="value">{{ (character | async)?.species }}</div>
+            </div>
+
+            <div class="detail">
+              <div class="name">Gender</div>
+              <div class="value">{{ (character | async)?.gender }}</div>
+            </div>
+
+            <div class="detail">
+              <div class="name">Type</div>
+              <div class="value">{{ (character | async)?.type }}</div>
+            </div>
+
+            <div class="detail">
+              <div class="name">Created</div>
+              <div class="value">{{ (character | async)?.created }}</div>
+            </div>
+
+          </div>
+
+          <div class="details"
+               fxLayout="column" fxLayout.gt-sm="row"
+               fxLayoutAlign.gt-sm="space-between" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
+
+            <div class="detail">
+              <div class="name">Origin</div>
+              <div class="value">{{ (character | async)?.origin.name }}</div>
+            </div>
+
+            <div class="detail">
+              <div class="name">Location</div>
+              <div class="value">{{ (character | async)?.location.name }}</div>
+            </div>
+
+          </div>
+
+          <div class="divider reverse"></div>
+
+          <div class="right-bottom">
+            <div class="description-title">Episodes</div>
+            <div class="description">
+              <div class="detail">
+                <div class="value">
+                  <mat-chip-list>
+                    <mat-chip *ngFor="let item of (character | async)?.episode; let i = index;"
+                              [routerLink]="['/episode-details', i + 1]"
+                              style="width: 100px;">
+                      {{ 'Episode ' + (i + 1) }}
+                    </mat-chip>
+                  </mat-chip-list>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>

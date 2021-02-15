@@ -9,8 +9,9 @@ import {SelectLayoutAction, SetCardElevationAction} from '../layout/shared/layou
 
 @Component({
   selector: 'elastic-route-handler',
-  templateUrl: './route-handler.component.html',
-  styleUrls: ['./route-handler.component.scss']
+  template: `
+    <router-outlet></router-outlet>
+  `
 })
 
 export class RouteHandlerComponent implements OnInit {

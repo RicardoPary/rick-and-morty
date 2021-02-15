@@ -33,12 +33,4 @@ export class CharacterService {
     return this.http.get(`${this.apiBaseUrl}character/?page=${page}`, {observe: 'response'});
   }
 
-  getCharacterById(id: number): Observable<HttpResponse<any>> {
-    return this.http.get(`${this.apiBaseUrl}character/${id}`, {observe: 'response'});
-  }
-
-  getEpisodeById(id: number): Observable<HttpResponse<any>> {
-    return this.http.get(`${this.apiBaseUrl}episode/${id}`, {observe: 'response'});
-  }
-
 }

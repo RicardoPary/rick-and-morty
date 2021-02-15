@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ROUTE_TRANSITION} from "../../app.animation";
+import {ROUTE_TRANSITION} from '../../app.animation';
 import {ActivatedRoute} from "@angular/router";
-import {CharacterService} from "../character/character.service";
 import {BehaviorSubject, Subscription} from "rxjs";
+import {EpisodeDetailsService} from "./episode-details.service";
 
 @Component({
   templateUrl: './episode-details.component.html',
@@ -12,20 +12,19 @@ import {BehaviorSubject, Subscription} from "rxjs";
 })
 export class EpisodeDetailsComponent implements OnInit, OnDestroy {
 
-  id: number;
-  entity = new BehaviorSubject<any>(null);
+  episode = new BehaviorSubject<any>(null);
   subs: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private reportingService: CharacterService) {
+              private episodeDetailsService: EpisodeDetailsService) {
 
   }
 
   ngOnInit() {
 
-    this.id = this.activatedRoute.snapshot.params.id;
-    this.subs = this.reportingService.getEpisodeById(this.id).subscribe(res => {
-      this.entity.next(res.body);
+    const id = this.activatedRoute.snapshot.params.id;
+    this.subs = this.episodeDetailsService.getEpisodeById(id).subscribe(res => {
+      this.episode.next(res.body);
     });
 
   }

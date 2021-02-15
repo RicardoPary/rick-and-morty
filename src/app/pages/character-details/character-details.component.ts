@@ -1,37 +1,39 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ROUTE_TRANSITION} from "../../app.animation";
+import {Component, OnInit} from '@angular/core';
+import {ROUTE_TRANSITION} from '../../app.animation';
 import {ActivatedRoute} from "@angular/router";
-import {CharacterService} from "../character/character.service";
 import {BehaviorSubject, Subscription} from "rxjs";
+import {CharacterDetailsService} from "./character-details.service";
 
 @Component({
+  selector: 'elastic-project-details',
   templateUrl: './character-details.component.html',
   styleUrls: ['./character-details.component.scss'],
   animations: [...ROUTE_TRANSITION],
   host: {'[@routeTransition]': ''}
 })
-export class CharacterDetailsComponent implements OnInit, OnDestroy {
+export class CharacterDetailsComponent implements OnInit {
 
-  id: number;
-  entity = new BehaviorSubject<any>(null);
+  character = new BehaviorSubject<any>(null);
   subs: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private reportingService: CharacterService) {
 
+  constructor(private activatedRoute: ActivatedRoute,
+              private characterDetailsService: CharacterDetailsService) {
   }
 
   ngOnInit() {
 
-    this.id = this.activatedRoute.snapshot.params.id;
-    this.subs = this.reportingService.getCharacterById(this.id).subscribe(res => {
-      this.entity.next(res.body);
+    const id = this.activatedRoute.snapshot.params.id;
+    this.subs = this.characterDetailsService.getCharacterById(id).subscribe(res => {
+      this.character.next(res.body);
     });
+
 
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe();
   }
+
 
 }
