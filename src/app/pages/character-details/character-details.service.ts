@@ -1,9 +1,12 @@
-import {Observable} from 'rxjs';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+// ANGULAR
 import {Injectable} from '@angular/core';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+// RXJS
+import {Observable} from 'rxjs';
+// OTHERS
 import {environment} from "../../../environments/environment";
 
-@Injectable({providedIn: 'root'})
+@Injectable()
 export class CharacterDetailsService {
 
   apiBaseUrl = environment.app.apiBaseUrl;

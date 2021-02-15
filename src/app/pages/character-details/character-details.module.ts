@@ -1,15 +1,19 @@
+// ANGULAR
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {CharacterDetailsComponent} from "./character-details.component";
-import {CharacterDetailsService} from "./character-details.service";
-import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
-import {PageHeaderModule} from "../../core/page-header/page-header.module";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+// MODULES
 import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
+import {PageHeaderModule} from "../../core/page-header/page-header.module";
+// COMPONENTS
+import {CharacterDetailsComponent} from "./character-details.component";
+// SERVICES
+import {CharacterDetailsService} from "./character-details.service";
 
 const routes: Routes = [
   {path: '', component: CharacterDetailsComponent}

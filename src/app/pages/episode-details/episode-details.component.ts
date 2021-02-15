@@ -1,8 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ROUTE_TRANSITION} from '../../app.animation';
+// ANGULAR
 import {ActivatedRoute} from "@angular/router";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+// RXJS
 import {BehaviorSubject, Subscription} from "rxjs";
+// SERVICES
 import {EpisodeDetailsService} from "./episode-details.service";
+// OTHERS
+import {ROUTE_TRANSITION} from '../../app.animation';
 
 @Component({
   templateUrl: './episode-details.component.html',
@@ -10,6 +14,7 @@ import {EpisodeDetailsService} from "./episode-details.service";
   animations: [...ROUTE_TRANSITION],
   host: {'[@routeTransition]': ''}
 })
+
 export class EpisodeDetailsComponent implements OnInit, OnDestroy {
 
   episode = new BehaviorSubject<any>(null);
@@ -20,16 +25,12 @@ export class EpisodeDetailsComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params.id;
-    this.subs = this.episodeDetailsService.getEpisodeById(id).subscribe(res => {
-      this.episode.next(res.body);
-    });
-
+    this.subs = this.episodeDetailsService.getEpisodeById(id).subscribe(res => this.episode.next(res.body));
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subs?.unsubscribe();
   }
 

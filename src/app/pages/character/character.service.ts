@@ -1,6 +1,9 @@
-import {BehaviorSubject, Observable} from 'rxjs';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+// ANGULAR
 import {Injectable} from '@angular/core';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+// RXJS
+import {BehaviorSubject, Observable} from 'rxjs';
+// OTHERS
 import {environment} from "../../../environments/environment";
 
 export class Pagination {
@@ -8,7 +11,7 @@ export class Pagination {
   page = 1;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable()
 export class CharacterService {
 
   apiBaseUrl = environment.app.apiBaseUrl;

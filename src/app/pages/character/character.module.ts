@@ -1,19 +1,25 @@
+// ANGULAR
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {CharacterComponent} from './character.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule} from "@angular/forms";
+// ANGULAR MATERIAL
+import {RouterModule, Routes} from "@angular/router";
 import {MatButtonModule, MatIconModule, MatTabsModule} from '@angular/material';
-import {FormsModule} from '@angular/forms';
-import {ScrollbarModule} from '../../core/scrollbar/scrollbar.module';
+// MODULES
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
-import {RouterModule, Routes} from "@angular/router";
-import {PageHeaderModule} from "../../core/page-header/page-header.module";
-import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatSelectModule} from "@angular/material/select";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {ScrollbarModule} from '../../core/scrollbar/scrollbar.module';
+import {PageHeaderModule} from "../../core/page-header/page-header.module";
+import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
+// COMPONENTS
+import {CharacterComponent} from './character.component';
+// SERVICES
+import {CharacterService} from "./character.service";
 
 const routes: Routes = [
   {path: '', component: CharacterComponent}
@@ -35,9 +41,6 @@ const routes: Routes = [
     MatSelectModule,
     MatFormFieldModule,
 
-
-    FlexLayoutModule,
-
     MatCardModule,
     MatIconModule,
     MatDividerModule,
@@ -45,6 +48,9 @@ const routes: Routes = [
   ],
   declarations: [
     CharacterComponent
+  ],
+  providers: [
+    CharacterService
   ]
 })
 
