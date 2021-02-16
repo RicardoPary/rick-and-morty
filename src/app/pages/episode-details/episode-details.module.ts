@@ -3,9 +3,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 // MODULES
-import {MatIconModule} from "@angular/material/icon";
-import {MatChipsModule} from "@angular/material/chips";
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {SharedMaterialModule} from "../../shared/shared-material.module";
 import {PageHeaderModule} from "../../core/page-header/page-header.module";
 import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
 // COMPONENTS
@@ -23,9 +22,8 @@ const routes: Routes = [
     FlexLayoutModule,
     PageHeaderModule,
     BreadcrumbsModule,
-    RouterModule.forChild(routes),
-    MatChipsModule,
-    MatIconModule
+    SharedMaterialModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [
     EpisodeDetailsComponent

@@ -4,12 +4,10 @@ import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 // MODULES
-import {MatChipsModule} from "@angular/material/chips";
-import {MatIconModule} from "@angular/material/icon";
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
+import {SharedMaterialModule} from "../../shared/shared-material.module";
 import {PageHeaderModule} from "../../core/page-header/page-header.module";
+import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
 // COMPONENTS
 import {CharacterDetailsComponent} from "./character-details.component";
 // SERVICES
@@ -26,10 +24,8 @@ const routes: Routes = [
     FlexLayoutModule,
     PageHeaderModule,
     BreadcrumbsModule,
-    RouterModule.forChild(routes),
-    MatProgressSpinnerModule,
-    MatChipsModule,
-    MatIconModule
+    SharedMaterialModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [
     CharacterDetailsComponent
