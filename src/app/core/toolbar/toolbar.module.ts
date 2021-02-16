@@ -9,12 +9,16 @@ import { ToolbarNavigationItemComponent } from './toolbar-navigation/toolbar-nav
 import {
   ToolbarNavigationDropdownItemComponent
 } from './toolbar-navigation/toolbar-navigation-item/toolbar-navigation-dropdown-item/toolbar-navigation-dropdown-item.component';
-import { MatButtonModule, MatIconModule, MatInputModule, MatMenuModule, MatRippleModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScrollbarModule } from '../scrollbar/scrollbar.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UtilsModule } from '../utils/utils.module';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatInputModule} from "@angular/material/input";
+import {MatRippleModule} from "@angular/material/core";
 
 @NgModule({
   imports: [

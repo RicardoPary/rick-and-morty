@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatIconModule, MatRippleModule, MatSidenavModule } from '@angular/material';
 import { SidenavModule } from '../sidenav/sidenav.module';
 import { ToolbarModule } from '../toolbar/toolbar.module';
 import { RouterModule } from '@angular/router';
 import { ScrollbarService } from '../scrollbar/scrollbar.service';
 import {SettingsModule} from '../settings/settings.module';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatIconModule} from "@angular/material/icon";
+import {MatRippleModule} from "@angular/material/core";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   imports: [

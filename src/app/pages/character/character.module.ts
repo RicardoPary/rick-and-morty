@@ -4,7 +4,6 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
 // ANGULAR MATERIAL
 import {RouterModule, Routes} from "@angular/router";
-import {MatButtonModule, MatIconModule, MatTabsModule} from '@angular/material';
 // MODULES
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatCardModule} from "@angular/material/card";
@@ -20,6 +19,9 @@ import {BreadcrumbsModule} from "../../core/breadcrumbs/breadcrumbs.module";
 import {CharacterComponent} from './character.component';
 // SERVICES
 import {CharacterService} from "./character.service";
+import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatButtonModule} from "@angular/material/button";
 
 const routes: Routes = [
   {path: '', component: CharacterComponent}
@@ -42,7 +44,6 @@ const routes: Routes = [
     MatFormFieldModule,
 
     MatCardModule,
-    MatIconModule,
     MatDividerModule,
     RouterModule.forChild(routes)
   ],
