@@ -43,6 +43,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   onFilter(event) {
     const aux = this.rickAndMortyService.getFilter();
+    aux.page = 1;
     aux.species = event.value === 'all' ? null : event.value;
     this.rickAndMortyService.sendFilter(aux);
   }
