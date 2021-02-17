@@ -1,7 +1,9 @@
-<div class="project-details">
+<div class="character-details">
 
-  <elastic-page-header [height]="'180px'" background="url(/assets/img/demo/headers/pattern-3.png)"
-                       [reverse]="true"></elastic-page-header>
+  <elastic-page-header background="url(/assets/img/demo/headers/pattern-3.png)"
+                       [height]="'180px'"
+                       [reverse]="true">
+  </elastic-page-header>
 
   <div class="container">
 
@@ -9,66 +11,75 @@
                          [names]="['Characters']"
                          [header]="'primary'"></elastic-breadcrumbs>
 
-    <div fxLayout="column" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
-      <div class="splash"
-           fxLayout="column" fxLayout.gt-sm="row">
+    <div fxLayout="column"
+         fxLayoutGap="16px"
+         fxLayoutGap.gt-md="24px">
+      <div class="splash" fxLayout="column" fxLayout.gt-sm="row">
 
-        <div class="left" style="background-image: url({{(character | async)?.image}})"
+        <div class="left" style="background-repeat: no-repeat;
+             background-size: 100%;
+             background-color: #F4F4F4;
+             background-position: center;background-image: url({{(character | async)?.image}})"
              fxLayout="column"
              fxFlex.gt-xs="200px" fxFlex.gt-sm="300px">
         </div>
 
-        <div class="right" fxFlex="auto" fxFlex.gt-sm
-             fxLayout="column" fxLayoutAlign.gt-sm="space-between">
+        <div class="right"
+             fxFlex="auto"
+             fxLayout="column"
+             fxLayoutGap="30px"
+             fxLayoutAlign="space-between">
           <div class="splash-title">Character Information</div>
 
           <div class="details"
-               fxLayout="column" fxLayout.gt-sm="row"
-               fxLayoutAlign.gt-sm="space-between" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
-            <div class="detail">
+               fxLayout="row"
+               fxLayoutAlign="space-between center"
+               fxLayoutGap="16px">
+
+            <div class="detail" fxFlex="25%">
               <div class="name">Name</div>
               <div class="value">{{ (character | async)?.name }}</div>
             </div>
 
-            <div class="detail">
+            <div class="detail" fxFlex="25%">
               <div class="name">Status</div>
               <div class="value">{{ (character | async)?.status }}</div>
             </div>
 
-            <div class="detail">
+            <div class="detail" fxFlex="25%">
               <div class="name">Species</div>
               <div class="value">{{ (character | async)?.species }}</div>
             </div>
 
-            <div class="detail">
+            <div class="detail" fxFlex="25%">
               <div class="name">Gender</div>
               <div class="value">{{ (character | async)?.gender }}</div>
             </div>
-
-            <div class="detail">
-              <div class="name">Type</div>
-              <div class="value">{{ (character | async)?.type }}</div>
-            </div>
-
-            <div class="detail">
-              <div class="name">Created</div>
-              <div class="value">{{ (character | async)?.created }}</div>
-            </div>
-
           </div>
 
           <div class="details"
-               fxLayout="column" fxLayout.gt-sm="row"
-               fxLayoutAlign.gt-sm="space-between" fxLayoutGap="16px" fxLayoutGap.gt-md="24px">
+               fxLayout="row"
+               fxLayoutAlign="space-between center"
+               fxLayoutGap="16px">
 
-            <div class="detail">
+            <div class="detail" fxFlex="25%">
               <div class="name">Origin</div>
               <div class="value">{{ (character | async)?.origin.name }}</div>
             </div>
 
-            <div class="detail">
+            <div class="detail" fxFlex="25%">
               <div class="name">Location</div>
               <div class="value">{{ (character | async)?.location.name }}</div>
+            </div>
+
+            <div class="detail" fxFlex="25%">
+              <div class="name">Created</div>
+              <div class="value">{{ (character | async)?.created | date:'MMM d, y'}}</div>
+            </div>
+
+            <div class="detail" fxFlex="25%">
+              <div class="name">Type</div>
+              <div class="value">{{ (character | async)?.type }}</div>
             </div>
 
           </div>
@@ -83,7 +94,7 @@
                   <mat-chip-list>
                     <mat-chip *ngFor="let item of (character | async)?.episode; let i = index;"
                               [routerLink]="['/episode-details', i + 1]"
-                              style="width: 100px;">
+                              style="width: 100px; cursor: pointer;">
                       {{ 'Episode ' + (i + 1) }}
                     </mat-chip>
                   </mat-chip-list>

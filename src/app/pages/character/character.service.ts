@@ -20,7 +20,7 @@ export class CharacterService {
   constructor(private http: HttpClient) {
   }
 
-  sendPagination(object: any) {
+  sendPagination(object: any): void {
     this.pagination.next(object);
   }
 
@@ -28,7 +28,7 @@ export class CharacterService {
     return this.pagination.asObservable();
   }
 
-  getPagination() {
+  getPagination(): any {
     return this.pagination.getValue();
   }
 

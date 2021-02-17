@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import { ActionReducerMap } from '@ngrx/store';
-import sortBy from 'lodash-es/sortBy';
 
 /**
  * Every reducer module's default export is the reducer function itself. In

@@ -1,5 +1,5 @@
 import * as layout from './layout.action';
-import { updateObject } from '../../utils/update-object';
+import {updateObject} from '../../utils/update-object';
 
 
 export interface State {

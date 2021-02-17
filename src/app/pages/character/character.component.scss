@@ -1,6 +1,6 @@
 @import "../../../styles/_var.scss";
 
-.projects {
+.character {
 
   @include responsivePadding();
 
@@ -37,7 +37,7 @@
       @include aspect-ratio(21, 9);
 
       > .content {
-        color: white;
+        color: black;
         padding: 8px 18px 24px 24px;
 
         .top-row {

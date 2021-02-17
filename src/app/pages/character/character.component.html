@@ -1,12 +1,18 @@
-<div class="projects">
+<div class="character">
 
-  <elastic-page-header [height]="'180px'" background="url(/assets/img/demo/headers/pattern-3.png)"
-                       [reverse]="true"></elastic-page-header>
+  <elastic-page-header background="url(/assets/img/demo/headers/pattern-3.png)"
+                       [height]="'180px'"
+                       [reverse]="true">
+  </elastic-page-header>
 
   <div class="container">
 
     <div fxLayout="row" fxLayoutAlign="space-between center">
-      <elastic-breadcrumbs [currentPage]="'Characters'" [header]="'primary'"></elastic-breadcrumbs>
+
+      <elastic-breadcrumbs [currentPage]="'Characters'"
+                           [header]="'primary'">
+      </elastic-breadcrumbs>
+
       <div class="actions"
            fxLayout="row"
            fxLayoutAlign="end center"
@@ -36,9 +42,7 @@
       </div>
     </div>
 
-    <div class="projects-container"
-         style="flex-flow: row wrap; display: flex;"
-         fxLayoutGap="24px">
+    <div class="projects-container" style="flex-flow: row wrap; display: flex;" fxLayoutGap="24px">
 
       <div class="project mat-elevation-z4"
            *ngFor="let project of items | async"
@@ -51,7 +55,7 @@
           <div class="content">
             <div fxLayout="column" fxFlex="auto">
               <div class="top-row" fxLayout="row" fxLayoutAlign="space-between center">
-                <div>{{project.created}}</div>
+                <div>{{project.created | date:'MMM d, y'}}</div>
               </div>
             </div>
           </div>

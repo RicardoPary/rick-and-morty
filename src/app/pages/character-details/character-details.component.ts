@@ -1,8 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {ROUTE_TRANSITION} from '../../app.animation';
+// ANGULAR
 import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+// RXJS
 import {BehaviorSubject, Subscription} from "rxjs";
+// SERVICES
 import {CharacterDetailsService} from "./character-details.service";
+// OTHERS
+import {ROUTE_TRANSITION} from '../../app.animation';
 
 @Component({
   selector: 'elastic-project-details',
@@ -11,11 +15,11 @@ import {CharacterDetailsService} from "./character-details.service";
   animations: [...ROUTE_TRANSITION],
   host: {'[@routeTransition]': ''}
 })
+
 export class CharacterDetailsComponent implements OnInit {
 
   character = new BehaviorSubject<any>(null);
   subs: Subscription;
-
 
   constructor(private activatedRoute: ActivatedRoute,
               private characterDetailsService: CharacterDetailsService) {
@@ -28,12 +32,10 @@ export class CharacterDetailsComponent implements OnInit {
       this.character.next(res.body);
     });
 
-
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe();
   }
-
 
 }
