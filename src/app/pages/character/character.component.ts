@@ -24,7 +24,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   smallTabletWidth = `0 0 calc(50% - 24px)`;
   mobileWidth = `0 0 calc(100% - 24px)`;
 
-  filter = 'ALL';
+  filter = 'all';
 
   items = new BehaviorSubject<any[]>([]);
   subs: Subscription;
@@ -33,16 +33,18 @@ export class CharacterComponent implements OnInit, OnDestroy {
               private cd: ChangeDetectorRef,
               private rickAndMortyService: CharacterService) {
 
-    this.rickAndMortyService.currentPagination().subscribe(res => {
-      this.subs = this.rickAndMortyService.getCharacters(res.page).subscribe(
+    this.rickAndMortyService.currentFilter().subscribe(res => {
+      this.subs = this.rickAndMortyService.getCharacters(res).subscribe(
         res => this.items.next(res.body.results)
       );
     });
 
   }
 
-  filterProjectsBy(selectEvent) {
-
+  onFilter(event) {
+    const aux = this.rickAndMortyService.getFilter();
+    aux.species = event.value === 'all' ? null : event.value;
+    this.rickAndMortyService.sendFilter(aux);
   }
 
   ngOnInit() {
@@ -54,15 +56,15 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   previous() {
-    const aux = this.rickAndMortyService.getPagination();
+    const aux = this.rickAndMortyService.getFilter();
     aux.page = aux.page - 1
-    aux.page > 0 ? this.rickAndMortyService.sendPagination(aux) : '';
+    aux.page > 0 ? this.rickAndMortyService.sendFilter(aux) : '';
   }
 
   next() {
-    const aux = this.rickAndMortyService.getPagination();
+    const aux = this.rickAndMortyService.getFilter();
     aux.page = aux.page + 1
-    this.rickAndMortyService.sendPagination(aux);
+    this.rickAndMortyService.sendFilter(aux);
   }
 
 }

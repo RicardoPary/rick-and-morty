@@ -32,11 +32,12 @@
           </button>
         </div>
         <mat-form-field>
-          <mat-select class="filter" [(ngModel)]="filter" (change)="filterProjectsBy($event)">
-            <mat-option value="ALL">All</mat-option>
-            <mat-option value="ONGOING">Ongoing</mat-option>
-            <mat-option value="FINISHED">Finished</mat-option>
-            <mat-option value="DRAFT">Draft</mat-option>
+          <mat-select class="filter"
+                      [ngModel]="filter"
+                      (selectionChange)="onFilter($event)">
+            <mat-option value="all">All</mat-option>
+            <mat-option value="human">Human</mat-option>
+            <mat-option value="alien">Alien</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
